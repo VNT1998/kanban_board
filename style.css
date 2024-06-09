@@ -1,0 +1,163 @@
+/* @import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/all.css'; */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  /* font-family:'FontAwesome';src:url('../fonts/fontawesome-webfont.eot?v=4.7.0'); */
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #4b4b4b;
+  box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.priority-filter {
+  background-color: #f0f0f0;
+  color: #4b4b4b;
+  margin: 10px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.priority-filter .box:hover {
+  box-shadow: 0 0 5px 0 #708090;
+}
+.priority-filter .box {
+  height: 30px;
+  width: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.p1 {
+  background-color: #ffb6c1;
+}
+.p2 {
+  background-color: #afe1af;
+}
+.p3 {
+  background-color: #87ceeb;
+}
+.p4 {
+  background-color: #708090;
+}
+
+.quick-action {
+  background-color: #f0f0f0;
+  color: #4b4b4b;
+  margin: 10px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.quick-action .icon:hover {
+  box-shadow: 0 0 5px 0 #708090;
+}
+.quick-action .icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  background-color: #4b4b4b;
+  line-height: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quick-action .icon.add {
+  color: greenyellow;
+}
+.quick-action .icon.remove {
+  color: red;
+}
+
+main h1 {
+  color: #4b4b4b;
+  margin: 10px 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.modal {
+  width: 50vw;
+  height: 50vh;
+  background-color: #4b4b4b;
+  border-radius: 5px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal .left-section {
+  width: calc(100% - 70px);
+  height: 100%;
+  display: flex;
+}
+
+.modal .right-section {
+  width: 70px;
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+}
+.modal .left-section textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.modal .right-section .priority-filter {
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+}
+.modal .right-section .priority-filter .box {
+  width: 100%;
+  height: 20%;
+}
+.modal .right-section .priority-filter .box.selected {
+  border: 1px solid #000000;
+}
+
+.modal .right-section .icon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  color: red;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}

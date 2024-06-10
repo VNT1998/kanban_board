@@ -1,16 +1,28 @@
 /* @import '@fortawesome/fontawesome-free/css/fontawesome.css';
 @import '@fortawesome/fontawesome-free/css/all.css'; */
 
-body {
+:root {
+  --p1: #ffb6c1;
+  --p2: #afe1af;
+  --p3: #87ceeb;
+  --p4: #708090;
+  --bg: #f0f0f0;
+  --secondary-bg: #4b4b4b;
+  --yellow: #ffc300;
+}
+
+* {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  /* font-family:'FontAwesome';src:url('../fonts/fontawesome-webfont.eot?v=4.7.0'); */
-  background-color: #f0f0f0;
+}
+
+body {
+  background-color: var(--bg);
 }
 
 header {
-  background-color: #4b4b4b;
+  background-color: var(--secondary-bg);
   box-sizing: border-box;
   height: 80px;
   width: 100%;
@@ -20,8 +32,8 @@ header {
 }
 
 .priority-filter {
-  background-color: #f0f0f0;
-  color: #4b4b4b;
+  background-color: var(--bg);
+  color: var(--secondary-bg);
   margin: 10px 10px;
   padding: 10px;
   border-radius: 5px;
@@ -33,7 +45,7 @@ header {
 }
 
 .priority-filter .box:hover {
-  box-shadow: 0 0 5px 0 #708090;
+  box-shadow: 0 0 5px 0 var(--p4);
 }
 .priority-filter .box {
   height: 30px;
@@ -43,21 +55,21 @@ header {
 }
 
 .p1 {
-  background-color: #ffb6c1;
+  background-color: var(--p1);
 }
 .p2 {
-  background-color: #afe1af;
+  background-color: var(--p2);
 }
 .p3 {
-  background-color: #87ceeb;
+  background-color: var(--p3);
 }
 .p4 {
-  background-color: #708090;
+  background-color: var(--p4);
 }
 
 .quick-action {
-  background-color: #f0f0f0;
-  color: #4b4b4b;
+  background-color: var(--bg);
+  color: var(--secondary-bg);
   margin: 10px 10px;
   padding: 10px;
   border-radius: 5px;
@@ -70,13 +82,13 @@ header {
 }
 
 .quick-action .icon:hover {
-  box-shadow: 0 0 5px 0 #708090;
+  box-shadow: 0 0 5px 0 var(--p4);
 }
 .quick-action .icon {
   height: 40px;
   width: 40px;
   border-radius: 5px;
-  background-color: #4b4b4b;
+  background-color: var(--secondary-bg);
   line-height: 0;
   padding: 0;
   cursor: pointer;
@@ -93,7 +105,7 @@ header {
 }
 
 main h1 {
-  color: #4b4b4b;
+  color: var(--secondary-bg);
   margin: 10px 10px;
   padding: 10px;
   display: flex;
@@ -106,7 +118,7 @@ main h1 {
 .modal {
   width: 50vw;
   height: 50vh;
-  background-color: #4b4b4b;
+  background-color: var(--secondary-bg);
   border-radius: 5px;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -147,7 +159,7 @@ main h1 {
   height: 20%;
 }
 .modal .right-section .priority-filter .box.selected {
-  border: 1px solid #000000;
+  border: 1px solid black;
 }
 
 .modal .right-section .icon {
@@ -160,4 +172,90 @@ main h1 {
 
 .hide {
   display: none;
+}
+
+.ticket-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ticket-container {
+  width: 20vh;
+  height: 20vh;
+  min-height: 100px;
+  min-width: 100px;
+  border-radius: 10px;
+  background-color: var(--secondary-bg);
+  display: flex;
+  flex-direction: column;
+}
+.ticket-container .ticket-priority {
+  width: 100%;
+  height: 10%;
+  border-radius: 10px 10px 0 0;
+}
+
+.ticket-container .ticket-priority.p1 {
+  background-color: var(--p1);
+}
+.ticket-container .ticket-priority.p2 {
+  background-color: var(--p2);
+}
+.ticket-container .ticket-priority.p3 {
+  background-color: var(--p3);
+}
+.ticket-container .ticket-priority.p4 {
+  background-color: var(--p4);
+}
+
+.ticket-container .ticket-id {
+  width: 100%;
+  height: 20%;
+  background-color: var(--yellow);
+  padding: 0px 5px;
+  box-sizing: border-box;
+}
+.ticket-content {
+  width: 100%;
+  height: 40%;
+}
+.ticket-content textarea {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  resize: none;
+  color: white;
+}
+
+.ticket-container .ticket-lock {
+  color: white;
+  width: 100%;
+  /* height: 70%; */
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding: 0px;
+}
+
+.icon {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ticket-lock.locked .icon.fa-solid.fa-lock {
+  display: block;
+}
+.ticket-lock .icon.fa-solid.fa-lock {
+  display: none;
+}
+.ticket-lock.locked .icon.fa-solid.fa-lock-open {
+  display: none;
+}
+.ticket-lock .icon.fa-solid.fa-lock--open {
+  display: block;
 }

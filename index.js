@@ -4,6 +4,7 @@ const modalRef = document.querySelector('.modal');
 const textAreaRef = document.querySelector('.modal .left-section textarea');
 const priorityButtonsRef = document.querySelectorAll('.modal .right-section .priority-filter .box');
 
+
 const tasks = [];
 
 const newTask = {
@@ -52,7 +53,7 @@ textAreaRef.addEventListener('keyup', (event) => {
         task.description = description;
         task.priority = priority;
         tasks.push(task);
-
+        listTasks(tasks);
         closeModal();
         console.log(tasks);
     }
@@ -85,3 +86,42 @@ priorityButtonsRef.forEach((button) => {
         button.classList.add('selected');
     })
 })
+
+function createTicket(task) {
+    return `
+    <div class="ticket-container" id="${task.id}">
+        <div class="ticket-priority ${task.priority}"></div>
+        <div class="ticket-id">${task.id}</div>
+        <div class="ticket-content">
+            <textarea class="ticket-content-textarea" disabled = true>${task.description}</textarea>
+        </div>
+        <div class="ticket-lock locked">
+            <i class="icon fa-solid fa-lock"></i>
+            <i class="icon fa-solid fa-lock-open"></i>
+        </div>
+    </div>
+    `
+}
+
+function listTasks(tasks) {
+    document.querySelector('.ticket-section').replaceChildren();
+    tasks.forEach(task => {
+        const ticket = createTicket(task);
+        document.querySelector('.ticket-section').insertAdjacentHTML('beforeend', ticket);
+        addListners(task.id);
+    })
+}
+function addListners(id) {
+    const ticket = document.getElementById(`${id}`);
+    ticket.querySelector('.ticket-lock').addEventListener('click', (event) => {
+        const textarea = ticket.querySelector('.ticket-content-textarea');
+        event.currentTarget.classList.contains('locked') ? textarea.removeAttribute('disabled') : textarea.setAttribute('disabled', true);
+        event.currentTarget.classList.toggle('locked');
+    });
+    ticket.querySelector('.ticket-content-textarea').addEventListener('blur', (event) => {
+        tasks.find(task => task.id == id).description = event.currentTarget.value;
+        console.log(tasks);
+    });
+}
+
+
